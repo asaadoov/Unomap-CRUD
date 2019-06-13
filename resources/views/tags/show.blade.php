@@ -1,11 +1,11 @@
 @extends('layouts.app')
-
+{{-- {{dd($tags)}} --}}
 @section('content')
 <div class="row">
     <div class="col-8">
-      <h2 class="mt-4 text-center ">Posts</h2>
-      @if(count($posts)>0)
-        @foreach($posts as $post)
+      <h2 class="mt-4 text-center ">{{$tag->name}}</h2>
+      @if(count($tags)>0)
+        @foreach($tag->posts as $post)
         <div class="card card-body bg-light my-4">
         <h3> <a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
           <small style="font-size:0.8rem;">

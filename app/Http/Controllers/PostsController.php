@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Tag;
 
 class PostsController extends Controller
 {
@@ -24,8 +25,10 @@ class PostsController extends Controller
      */
     public function index()
     {
+        $tags = Tag::orderBy('id', 'asc')->get();
         $posts = Post::orderBy('id', 'desc')->get();
-        return view('posts.index')->with('posts', $posts);
+
+        return view('posts.index', compact('tags', 'posts'));
     }
 
     /**
@@ -66,9 +69,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        return view('posts.show')->with('post', Post::find($id));
+        // dd($request->id);
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
     }
 
     /**

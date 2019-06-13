@@ -15,6 +15,8 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 Route::resource('posts', 'PostsController');
+Route::resource('tags', 'TagsController');
+// Route::get('posts/tag/{id}', 'PostsController@show');
 
 // Route::get('/hello', function () {
 //     return 'Hello World!';
