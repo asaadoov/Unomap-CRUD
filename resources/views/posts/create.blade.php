@@ -14,7 +14,7 @@
     </div>
     <div class="form-inline my-3">
         {{Form::label('tag','Tags')}}
-        {{Form::text('tag','',['class' => 'form-control ml-3 ', 'placeholder' => 'Add tags separated by , '])}}
+        {{Form::text('tag','',['class' => 'form-control ml-3 ', 'placeholder' => 'Tags separated by , '])}}
     </div>
     {{Form::submit('submit',['class'=>'btn btn-primary'])}}
   {{ Form::close() }}

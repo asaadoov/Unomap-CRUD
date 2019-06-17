@@ -26,7 +26,7 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        return redirect('/posts.create');
     }
 
     /**
@@ -50,8 +50,8 @@ class TagsController extends Controller
     {
         $tags = Tag::orderBy('name', 'asc')->get();
         $tag = Tag::find($id);
-        $tagPosts =  false || $tag->posts;
-        return view('tags.show', compact('tag', 'tagPosts', 'tags'));
+        $tagPosts = $tag->posts;
+        return view('tags.showTag', compact('tag', 'tagPosts', 'tags'));
     }
 
     /**

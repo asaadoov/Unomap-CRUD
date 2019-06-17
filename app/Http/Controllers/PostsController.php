@@ -28,7 +28,7 @@ class PostsController extends Controller
         $tags = Tag::orderBy('id', 'asc')->get();
         $posts = Post::orderBy('id', 'desc')->get();
 
-        return view('posts.index', compact('tags', 'posts'));
+        return view('posts.index',compact('posts','tags'));
     }
 
     /**
@@ -62,7 +62,7 @@ class PostsController extends Controller
         $post->save();
 
         // create tag
-        $newTags= explode(',',$request->input('tag'));
+        $newTags= explode(',',preg_replace('/\s+/', '', $request->input('tag')));
         foreach ($newTags as $id => $name) {
             if($name == '')
                 continue;
@@ -104,10 +104,16 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $postTags=[];
+        foreach ($post->tags as $id => $tag) {
+            $postTags[] = $tag->name;
+        }
+        $postTags = implode(' , ', $postTags);
+        // dd($postTags);
         if (Auth()->user()->id !== $post->user_id) {
             return redirect('/posts')->with('error', 'Unauthorized Page!');
         }
-        return view('posts.edit')->with('post', $post);
+        return view('posts.edit',compact('post','postTags'));
     }
 
     /**
@@ -124,11 +130,42 @@ class PostsController extends Controller
             'body' => 'required'
         ]);
 
+
         // create post
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->save();
+
+        //fix a bug
+        //if on tag is removed from a post it will be removed from all the post
+        foreach ($post->tags as $id => $postTag) {
+            $post->tags()->detach($postTag);
+            if(count($postTag->posts)==0)
+                $postTag->delete();
+        }
+
+
+
+        // create tag
+        $newTags= explode(',',preg_replace('/\s+/', '', $request->input('tag')));
+        foreach ($newTags as $id => $name) {
+            if($name == '')
+                continue;
+            // check if tag already exist
+            $prevTag = Tag::where('name','=', $name)->first();
+            if($prevTag and ($prevTag->name !== '')){
+                $tag = Tag::where('name','=', $name)->get('id');
+                $post->tags()->attach($tag);
+                continue;
+            }
+
+            $tag = new Tag;
+            $tag->name=$name;
+            $tag->save();
+            $post->tags()->attach($tag);
+        };
+
         return redirect('/posts')->with('success', 'Post updated');
     }
 
@@ -144,6 +181,13 @@ class PostsController extends Controller
         if (Auth()->user()->id !== $post->user_id) {
             return redirect('/posts')->with('error', 'Unauthorized Page!');
         }
+
+        foreach ($post->tags as $id => $postTag) {
+            $post->tags()->detach($postTag);
+            if(count($postTag->posts)==0)
+                $postTag->delete();
+        }
+
         $post->delete();
         return redirect('/posts')->with('success', 'Post Deleted');
     }

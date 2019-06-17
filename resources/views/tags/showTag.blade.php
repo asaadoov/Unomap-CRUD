@@ -1,8 +1,14 @@
 @extends('layouts.app')
-{{-- {{dd($tags)}} --}}
+
 @section('content')
 <div class="row">
-    <div class="col-8">
+  <div class="col-12 mx-auto">
+    @include('inc.tags')
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-10 mx-auto">
       <h2 class="mt-4 text-center ">{{$tag->name}}</h2>
       @if(count($tags)>0 && $tag->posts)
         @foreach($tag->posts as $post)
@@ -12,15 +18,11 @@
             written on {{date('m/d/y', strtotime($post->created_at))}} by
             <strong class="text-info"> {{ $post->user->name }} </strong>
           </small>
-
         </div>
         @endforeach
       @else
         <p>No posts found</p>
       @endif
     </div>
-      <div class="col-4">
-        @include('inc.tags')
-      </div>
-    </div>
+</div>
 @endsection
