@@ -63,6 +63,8 @@ class PostsController extends Controller
 
         // create tag
         $newTags= explode(',',preg_replace('/\s+/', '', $request->input('tag')));
+        $newTags=array_unique ($newTags);
+
         foreach ($newTags as $id => $name) {
             if($name == '')
                 continue;
@@ -91,7 +93,9 @@ class PostsController extends Controller
     public function show(Request $request, $id)
     {
         // dd($request->id);
-        $post = Post::findOrFail($id);
+        $post = Post::find($id);
+        if($post==null)
+            return redirect('/posts')->with('error','There is no post with this ID');
         return view('posts.show', compact('post'));
     }
 
@@ -137,8 +141,6 @@ class PostsController extends Controller
         $post->body = $request->input('body');
         $post->save();
 
-        //fix a bug
-        //if on tag is removed from a post it will be removed from all the post
         foreach ($post->tags as $id => $postTag) {
             $post->tags()->detach($postTag);
             if(count($postTag->posts)==0)
@@ -149,6 +151,8 @@ class PostsController extends Controller
 
         // create tag
         $newTags= explode(',',preg_replace('/\s+/', '', $request->input('tag')));
+        $newTags=array_unique ($newTags);
+        // dd($newTags);
         foreach ($newTags as $id => $name) {
             if($name == '')
                 continue;

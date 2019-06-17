@@ -3,7 +3,7 @@
 @section('content')
   <h2 class="mb-2">{{$post->title}}</h2>
     @foreach($post->tags as $tag)
-      <div style="font-size:1.2rem;" class="badge badge-dark mb-4"> <a href="http://127.0.0.1:8000/tags/{{$tag->id}}" class="text-light" > {{ $tag->name }}  </a></div>
+      <div style="font-size:1.2rem;" class="badge badge-dark mb-4"> <a href="/tags/{{$tag->id}}" class="text-light" > {{ $tag->name }}  </a></div>
     @endforeach
   <div>
     {!!$post->body!!}

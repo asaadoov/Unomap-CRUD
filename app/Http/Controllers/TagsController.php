@@ -48,8 +48,11 @@ class TagsController extends Controller
      */
     public function show($id)
     {
+
         $tags = Tag::orderBy('name', 'asc')->get();
         $tag = Tag::find($id);
+        if($tag==null)
+            return redirect('/posts')->with('error','There is no tag with this ID');
         $tagPosts = $tag->posts;
         return view('tags.showTag', compact('tag', 'tagPosts', 'tags'));
     }
