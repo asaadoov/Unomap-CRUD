@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-  <div class="col-12 mx-auto">
+<div class="row text-cenetr">
+  <div class="col-10 mx-auto">
     @include('inc.tags')
   </div>
 </div>
@@ -13,7 +13,7 @@
       @if(count($tags)>0 && $tag->posts)
         @foreach($tag->posts as $post)
         <div class="card card-body bg-light my-4">
-        <h3> <a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+        <h3> <a href="{{ route('posts.show',['id'=>$post->id])}}">{{$post->title}}</a></h3>
           <small style="font-size:0.8rem;">
             written on {{date('m/d/y', strtotime($post->created_at))}} by
             <strong class="text-info"> {{ $post->user->name }} </strong>

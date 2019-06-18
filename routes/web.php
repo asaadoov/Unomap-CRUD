@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
-Route::get('/about', 'PagesController@about');
-Route::get('/services', 'PagesController@services');
-Route::resource('posts', 'PostsController');
-Route::resource('tags', 'TagsController');
+Route::get('/', 'PagesController@index')->name('index');
+Route::get('/about', 'PagesController@about')->name('about');
+Route::get('/services', 'PagesController@services')->name('service');
+Route::get('/tags/{id}', 'TagsController@show')->name('getTag');
+Route::resource('/posts', 'PostsController');
+Route::resource('/tags', 'TagsController');
+
 // Route::get('posts/tag/{id}', 'PostsController@show');
 
 // Route::get('/hello', function () {
@@ -25,6 +27,8 @@ Route::resource('tags', 'TagsController');
 // Route::get('/about/{name}', function ($name) {
 //     return "this page is about $name";
 // });
+
+// Route::get('/posts', 'PostsController@index')->name('posts');
 
 Auth::routes();
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

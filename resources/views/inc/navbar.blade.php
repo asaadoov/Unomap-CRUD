@@ -12,16 +12,16 @@
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
+              <a class="nav-link" href="{{ route('about') }}">About</a>
             </li>
-            <li class="nav-item"> 
-              <a class="nav-link" href="/services">Services</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('service') }}">Services</a>
             </li>
-            <li class="nav-item"> 
-              <a class="nav-link" href="/posts">Blog</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('posts.index') }}">Blog</a>
             </li>
           </ul>
 
@@ -45,7 +45,7 @@
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          
+
                           <a href="/dashboard" class="dropdown-item">Dashboard</a>
                           <a class="dropdown-item" href="{{ route('logout') }}"
                               onclick="event.preventDefault();
