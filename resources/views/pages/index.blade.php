@@ -6,4 +6,3 @@
   <p>Main page</p>
 </div>
 @endsection
-  

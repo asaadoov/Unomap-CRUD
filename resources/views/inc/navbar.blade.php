@@ -1,57 +1,46 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-  <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url('/') }}">
-          {{ config('app.name', 'Laravel') }}
-      </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+<!-- Header -->
+<header id="header">
+    <div id="header_wrap">
+        <!-- Logo (LEFT) -->
+        <div id="logo"><a title="Logo" class="text-light" href="{{ url('/posts') }}"><img src="{{ asset('css/images/logo.jpg') }}" alt="Logo" width="30" height="30" /></a> </div>
+         {{-- {{ config('app.name', 'Laravel') }} --}}
+        <!-- Navigation (LEFT) -->
+        <div id="navigation">
+            <!-- Responsive Layout Only -->
+            <div class="navigation_title"><i class="fa fa-bars"></i> MENU</div>
+            <!-- Nav Bar (LEFT) -->
+            <nav>
+                <ul class="text-center ml-4 ">
+                    <li><a href="{{ route('posts.index') }}" class="nav_link text-center" id="nav_current" title="Posts">Posts</a></li>
+                </ul>
+            </nav>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Left Side Of Navbar -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('about') }}">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('service') }}">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('posts.index') }}">Blog</a>
-            </li>
-          </ul>
-
-          <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
               <!-- Authentication Links -->
               @guest
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  <li >
+                      <a class="nav_link" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>
                   @if (Route::has('register'))
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                          <a class="nav_link" href="{{ route('register') }}">{{ __('Register') }}</a>
                       </li>
                   @endif
               @else
-                  <li class="nav-item dropdown">
+                  <li >
 
-                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      <a role="button" style="float: right;"  class="mx-2" aria-haspopup="true" aria-expanded="false" v-pre>
                           {{ Auth::user()->name }} <span class="caret"></span>
                       </a>
 
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                          <a href="/dashboard" class="dropdown-item">Dashboard</a>
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                              onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
-                          </a>
+                      <a  href="{{ route('logout') }}"
+                          style="float: right;"
+                          onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                           {{ __('Logout |  ') }}
+                      </a>
+                      <a href="{{ route('dashboard') }}" class="text-center mx-2" style="float: right;"> Dashboard </a>
 
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                               @csrf
@@ -61,6 +50,7 @@
                   </li>
               @endguest
           </ul>
-      </div>
-  </div>
-</nav>
+        </div>
+    </div>
+</header>
+
