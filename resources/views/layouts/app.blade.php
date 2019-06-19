@@ -21,6 +21,7 @@
     <link href="{{ asset('css/main_stylesheet.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive_stylesheet.css') }}" rel="stylesheet">
     <link href="{{ asset('images/favicon.ico') }}" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/4-0-3/css/font-awesome.css">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -30,33 +31,18 @@
 <body>
   @include('inc.navbar')
 
-  <header id="subheader">
-      <div id="subheader_wrap">
-          <!-- Icon Background -->
-          <div id="icon_border"></div>
-      </div>
-  </header>
+
 
 <!-- Main Content -->
-<section id="content">
 
 
-<!-- Icon -->
-<div id="icon_wrap">
-    <!-- Icon Image can be modified in #Icon CSS Rule -->
-    <div id="icon">
-        <a href="#" title="Icon"><div id="icon_link"></div></a>
-    </div>
-</div>
+<section id="content" class="d-flex justify-content-center align-items-end">
 
-
-<!-- Categories -->
 <div id="content_wrap">
-  @include('inc.messages')
   @yield('content')
 </div>
 
-
+{{--
 <!-- Pagination/Social Media -->
 <footer id="page_footer">
     <nav id="pagination">
@@ -94,7 +80,7 @@
 <footer id="footer_banner">
     <div id="footer_banner_wrap">&#169; Copyright Unomap 2019</div>
 </footer>
-</section>
+</section> --}}
 <!-- Blur.js - https://github.com/jakiestfu/Blur.js -->
 <script type="text/javascript" src="{{ asset('js/blur.min.js') }}"></script>
 <!-- FlexSlider -->

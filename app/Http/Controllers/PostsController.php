@@ -38,7 +38,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.createPost');
     }
 
     /**
@@ -94,9 +94,11 @@ class PostsController extends Controller
     {
         // dd($request->id);
         $post = Post::find($id);
+        $tags = Tag::orderBy('id', 'asc')->get();
+
         if($post==null)
             return redirect('/posts')->with('error','There is no post with this ID');
-        return view('posts.show', compact('post'));
+        return view('posts.showPost', compact('post','tags'));
     }
 
     /**

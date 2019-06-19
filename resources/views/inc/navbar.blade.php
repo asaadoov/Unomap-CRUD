@@ -1,16 +1,16 @@
 
 <!-- Header -->
-<header id="header">
+<header id="header" >
     <div id="header_wrap">
         <!-- Logo (LEFT) -->
-        <div id="logo"><a title="Logo" class="text-light" href="{{ url('/posts') }}"><img src="{{ asset('css/images/logo.jpg') }}" alt="Logo" width="30" height="30" /></a> </div>
+        <div id="logo"><a title="Logo" class="text-light " href="{{ url('/posts') }}"><img src="{{ asset('css/images/logo.jpg') }}" alt="Logo" width="30" height="30" /></a> </div>
          {{-- {{ config('app.name', 'Laravel') }} --}}
         <!-- Navigation (LEFT) -->
         <div id="navigation">
             <!-- Responsive Layout Only -->
             <div class="navigation_title"><i class="fa fa-bars"></i> MENU</div>
             <!-- Nav Bar (LEFT) -->
-            <nav>
+            <nav class="text-center ml-4" >
                 <ul class="text-center ml-4 ">
                     <li><a href="{{ route('posts.index') }}" class="nav_link text-center" id="nav_current" title="Posts">Posts</a></li>
                 </ul>
@@ -19,14 +19,12 @@
           <ul class="navbar-nav ml-auto">
               <!-- Authentication Links -->
               @guest
-                  <li >
-                      <a class="nav_link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                  </li>
+                <li>
+                  <a class="nav_link" style="float: right;" href="{{ route('login') }}">{{ __('Login') }}</a>
                   @if (Route::has('register'))
-                      <li class="nav-item">
-                          <a class="nav_link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                      </li>
+                    <a class="nav_link" style="float: right;" href="{{ route('register') }}">{{ __('Register') }}</a>
                   @endif
+                </li>
               @else
                   <li >
 
@@ -42,14 +40,13 @@
                       </a>
                       <a href="{{ route('dashboard') }}" class="text-center mx-2" style="float: right;"> Dashboard </a>
 
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              @csrf
-                          </form>
-
-                      </div>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
                   </li>
               @endguest
           </ul>
+          </div>
         </div>
     </div>
 </header>

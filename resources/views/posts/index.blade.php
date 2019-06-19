@@ -3,6 +3,22 @@
 @extends('layouts.app')
 
 @section('content')
+
+  <header id="subheader">
+      <div id="subheader_wrap">
+          <!-- Icon Background -->
+          <div id="icon_border"></div>
+      </div>
+  </header>
+  <section id="content">
+<!-- Icon -->
+<div id="icon_wrap">
+    <!-- Icon Image can be modified in #Icon CSS Rule -->
+    <div id="icon">
+        <a href="#" title="Icon"><div id="icon_link"></div></a>
+    </div>
+</div>
+  @include('inc.messages')
   @include('inc.tags',compact('tags'))
   @if(count($posts)>0)
     @foreach($posts as $post)
@@ -13,7 +29,7 @@
               <!-- Post Header -->
               <header class="post_header">
                   <!-- Post Title -->
-                  <div class="post_title"><a href="{{ route('posts.show',['id'=>$post->id]) }}">{{ $post->title }}</a></div>
+                  <div class="post_title"><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></div>
                   <!-- Post Header -->
                   <div class="post_date">{{date('M d, y', strtotime($post->created_at))}}</div>
               </header>
@@ -40,6 +56,7 @@
     <p>No posts found</p>
   @endif
     </div>
+</section>
 <!-- Blur.js - https://github.com/jakiestfu/Blur.js -->
 <script type="text/javascript" src="{{ asset('js/blur.min.js') }}"></script>
 <!-- FlexSlider -->
