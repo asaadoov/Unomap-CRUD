@@ -186,7 +186,7 @@ body {
 /* 4.0 Categories */
 
 #content_wrap {
-	margin: 0px 0px 80px 0px;
+	margin-bottom: 10px;
 }
 .categories {
 	margin: 0 auto;
@@ -867,7 +867,7 @@ body {
 	padding: 20px 15px 20px 15px;
 	width: 916px;
 	display: block;
-	color: #5B6D8A;
+	color: #fff;
 	font-size: 13px;
 	text-align: center;
 }

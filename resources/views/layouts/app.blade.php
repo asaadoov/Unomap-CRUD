@@ -36,12 +36,15 @@
 <!-- Main Content -->
 
 
-<section id="content" class="d-flex ">
+<section id="content" class="d-flex justify-content-center align-items-end">
 
 <div id="content_wrap">
   @yield('content')
 </div>
-
+<footer id="footer_banner" style="margin-top: 0px;">
+    <div id="footer_banner_wrap">&#169; Copyright Unomap 2019</div>
+</footer>
+</section>
 {{--
 <!-- Pagination/Social Media -->
 <footer id="page_footer">
@@ -77,10 +80,8 @@
         </ul>
     </div>
 </footer>
-<footer id="footer_banner">
-    <div id="footer_banner_wrap">&#169; Copyright Unomap 2019</div>
-</footer>
-</section> --}}
+
+ --}}
 <!-- Blur.js - https://github.com/jakiestfu/Blur.js -->
 <script type="text/javascript" src="{{ asset('js/blur.min.js') }}"></script>
 <!-- FlexSlider -->
