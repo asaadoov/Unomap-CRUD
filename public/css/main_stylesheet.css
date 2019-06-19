@@ -31,7 +31,6 @@ body {
 }
 
 /* 1.1 Logo */
-
 #logo {
 	padding: 8px 0px;
 	width: 350px;
@@ -40,7 +39,6 @@ body {
 }
 
 /* 1.2 Navigation */
-
 #dropdown_item{
 	margin-top: 30px;
 }
@@ -107,6 +105,16 @@ body {
 }*/
 
 /* 2.0 Subheader */
+
+#createPost{
+	/*width: 100%;*/
+	/*padding: 150px 20px 20px 20px;*/
+	/*font-size: 13px;*/
+	/*text-decoration: none;*/
+	/*margin: 0px auto -150px auto;*/
+	/*width: 180px;*/
+	height: 70px;
+}
 
 #subheader {
 	width: 100%;
@@ -302,7 +310,7 @@ body {
 	padding: 35px 50px 35px 50px;
 	display: block;
 	overflow: auto;
-	width: 816px;
+	width: 916px;
 	background: #ffffff;
 	color: #74787d;
 }

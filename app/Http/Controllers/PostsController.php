@@ -26,7 +26,7 @@ class PostsController extends Controller
     public function index()
     {
         $tags = Tag::orderBy('id', 'asc')->get();
-        $posts = Post::orderBy('id', 'desc')->get();
+        $posts = Post::orderBy('id', 'asc')->get();
 
         return view('posts.index',compact('posts','tags'));
     }
@@ -38,7 +38,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.createPost');
+        return view('posts.createPost1');
     }
 
     /**
@@ -119,7 +119,7 @@ class PostsController extends Controller
         if (Auth()->user()->id !== $post->user_id) {
             return redirect('/posts')->with('error', 'Unauthorized Page!');
         }
-        return view('posts.edit',compact('post','postTags'));
+        return view('posts.editPost',compact('post','postTags'));
     }
 
     /**

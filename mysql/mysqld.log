@@ -1,0 +1,31 @@
+2009-08-19T16:13:37.875459Z 0 [Warning] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2009-08-19T16:13:37.875459Z 0 [Note] C:\laragon\bin\mysql\mysql-5.7.24-win32\bin\mysqld (mysqld 5.7.24) starting as process 1676 ...
+2009-08-19T16:13:37.906659Z 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2009-08-19T16:13:37.906659Z 0 [Note] InnoDB: Uses event mutexes
+2009-08-19T16:13:37.922259Z 0 [Note] InnoDB: Memory barrier is not used
+2009-08-19T16:13:37.922259Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2009-08-19T16:13:37.922259Z 0 [Note] InnoDB: Number of pools: 1
+2009-08-19T16:13:37.922259Z 0 [Note] InnoDB: Not using CPU crc32 instructions
+2009-08-19T16:13:37.922259Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2009-08-19T16:13:37.937859Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2009-08-19T16:13:38.047059Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2009-08-19T16:13:38.483860Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2009-08-19T16:13:38.483860Z 0 [Note] InnoDB: Setting file '.\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2009-08-19T16:13:39.326261Z 0 [Note] InnoDB: File '.\ibtmp1' size is now 12 MB.
+2009-08-19T16:13:39.341861Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2009-08-19T16:13:39.341861Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2009-08-19T16:13:39.341861Z 0 [Note] InnoDB: Waiting for purge to start
+2009-08-19T16:13:39.435461Z 0 [Note] InnoDB: 5.7.24 started; log sequence number 2596077
+2009-08-19T16:13:39.435461Z 0 [Note] InnoDB: Loading buffer pool(s) from C:\laragon\www\unomap\Unomap-CRUD\mysql\ib_buffer_pool
+2009-08-19T16:13:39.435461Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2009-08-19T16:13:39.856662Z 0 [Warning] Failed to set up SSL because of the following SSL library error: SSL context is not usable without certificate and private key
+2009-08-19T16:13:39.856662Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+2009-08-19T16:13:39.856662Z 0 [Note] IPv6 is available.
+2009-08-19T16:13:39.872262Z 0 [Note]   - '::' resolves to '::';
+2009-08-19T16:13:39.872262Z 0 [Note] Server socket created on IP: '::'.
+2009-08-19T16:13:40.293463Z 0 [Note] Event Scheduler: Loaded 0 events
+2009-08-19T16:13:40.293463Z 0 [Note] C:\laragon\bin\mysql\mysql-5.7.24-win32\bin\mysqld: ready for connections.
+Version: '5.7.24'  socket: ''  port: 3306  MySQL Community Server (GPL)
+2009-08-19T16:13:40.449463Z 0 [Note] InnoDB: Buffer pool(s) load completed at 090820  0:13:40
+2009-08-19T16:14:23.677139Z 2 [Note] Access denied for user 'root'@'localhost' (using password: YES)
+2009-08-19T16:14:28.923949Z 3 [Note] Access denied for user 'root'@'localhost' (using password: YES)

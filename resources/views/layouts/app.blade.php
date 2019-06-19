@@ -36,7 +36,7 @@
 <!-- Main Content -->
 
 
-<section id="content" class="d-flex justify-content-center align-items-end">
+<section id="content" class="d-flex ">
 
 <div id="content_wrap">
   @yield('content')

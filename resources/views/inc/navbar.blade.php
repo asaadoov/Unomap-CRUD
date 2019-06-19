@@ -20,25 +20,25 @@
               <!-- Authentication Links -->
               @guest
                 <li>
-                  <a class="nav_link" style="float: right;" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  <a class="nav_link text-white" style="float: right;" href="{{ route('login') }}">{{ __('Login') }}</a>
                   @if (Route::has('register'))
-                    <a class="nav_link" style="float: right;" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav_link text-white" style="float: right;" href="{{ route('register') }}">{{ __('Register') }}</a>
                   @endif
                 </li>
               @else
                   <li >
 
-                      <a role="button" style="float: right;"  class="mx-2" aria-haspopup="true" aria-expanded="false" v-pre>
+                      <a role="button" style="float: right; color: #3490dc;"  class="mx-2" aria-haspopup="true" aria-expanded="false" v-pre>
                           {{ Auth::user()->name }} <span class="caret"></span>
                       </a>
 
                       <a  href="{{ route('logout') }}"
-                          style="float: right;"
+                          style="float: right; color: #fff;"
                           onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                            {{ __('Logout |  ') }}
                       </a>
-                      <a href="{{ route('dashboard') }}" class="text-center mx-2" style="float: right;"> Dashboard </a>
+                      <a href="{{ route('dashboard') }}" class="text-center mx-2" style="float: right;color: #fff;"> Dashboard </a>
 
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                           @csrf

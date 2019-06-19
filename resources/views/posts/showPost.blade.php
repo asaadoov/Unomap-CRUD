@@ -54,6 +54,18 @@
                     <a href="#" class="share_facebook" title="Share on Facebook"><i class="fa fa-thumbs-up"></i>Share</a>
                     <a href="#" class="share_twitter" title="Share on Twitter"><i class="fa fa-twitter"></i>Tweet</a>
                 </div>
+                <br>
+                <br>
+                <br>
+                @if (Auth()->user()->id == $post->user_id)
+                <div class="my-1 d-flex justify-content-center">
+                    <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
+                    {!! Form::open(['action'=>  ['PostsController@destroy', $post->id], 'method'=>'POST', 'class'=>'float-left ml-1']) !!}
+                        {{Form::hidden('_method','DELETE')}}
+                        {{Form::submit('Delete',['class'=>'btn btn-danger ml-2'])}}
+                    {!! Form::close() !!}
+                </div>
+                @endif
             </footer>
         </section>
     </article>

@@ -1,24 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<section style="height: 100px;" >
+</section>
+<div class="container" style="width: 85vw;">
 		<div class="row justify-content-center">
 				<div class="col-md-10">
 						<div class="card">
-								<div class="card-header">Dashboard</div>
-
+								<div class="card-header" style="background: #465772; color: #fff">Dashboard</div>
 								<div class="card-body">
 										@if (session('status'))
 												<div class="alert alert-success" role="alert">
-														{{ session('status') }}
+													{{ session('status') }}
 												</div>
 												@endif
-												<a href="/posts/create" class="btn btn-primary">Create Post</a> <br><br>
-
+												<div class="text-center">
+													<a href="/posts/create" class="btn btn-primary ">Create Post</a> <br><br>
 										@if(count($posts)>0)
-												Your Blog Posts! <br><br>
+												<span style="color: black;">Your Blog Posts! </span><br><br>
+												</div>
 												<table class="table table-striped">
-														<tr>
+														<tr style="color: #020202; ">
 																<th>Title</th>
 																<th></th>
 																<th></th>
