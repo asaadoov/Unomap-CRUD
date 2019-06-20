@@ -10,7 +10,8 @@
   @if(count($tags)>0 && $tag->posts)
     @foreach($tag->posts as $post)
       <!-- Post #1 -->
-      <article class="post">
+      <article class="post" style="min-height: 55vh;
+">
           <!-- Post Content - Text -->
           <section class="post_content">
               <!-- Post Header -->
