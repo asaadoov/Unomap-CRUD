@@ -25,7 +25,9 @@ class TagsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { }
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -46,9 +48,9 @@ class TagsController extends Controller
      */
     public function show($id)
     {
-        $tags = Tag::orderBy('name', 'desc')->get();
+        $tags = Tag::orderBy('name', 'asc')->get();
         $tag = Tag::find($id);
-        $tagPosts = $tag->posts;
+        $tagPosts =  false || $tag->posts;
         return view('tags.show', compact('tag', 'tagPosts', 'tags'));
     }
 

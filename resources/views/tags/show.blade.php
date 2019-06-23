@@ -4,12 +4,12 @@
 <div class="row">
     <div class="col-8">
       <h2 class="mt-4 text-center ">{{$tag->name}}</h2>
-      @if(count($tags)>0)
+      @if(count($tags)>0 && $tag->posts)
         @foreach($tag->posts as $post)
         <div class="card card-body bg-light my-4">
         <h3> <a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
           <small style="font-size:0.8rem;">
-            written on {{date('m/d/y', strtotime($post->created_at))}} by 
+            written on {{date('m/d/y', strtotime($post->created_at))}} by
             <strong class="text-info"> {{ $post->user->name }} </strong>
           </small>
 
@@ -18,9 +18,9 @@
       @else
         <p>No posts found</p>
       @endif
-    </div> 
+    </div>
       <div class="col-4">
         @include('inc.tags')
-      </div> 
-    </div>   
+      </div>
+    </div>
 @endsection

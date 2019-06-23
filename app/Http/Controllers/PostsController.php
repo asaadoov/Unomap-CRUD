@@ -51,7 +51,7 @@ class PostsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
         ]);
 
         // create post
@@ -60,6 +60,25 @@ class PostsController extends Controller
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
         $post->save();
+
+        // create tag
+        $newTags= explode(',',$request->input('tag'));
+        foreach ($newTags as $id => $name) {
+            if($name == '')
+                continue;
+            // check if tag already exist
+            $prevTag = Tag::where('name','=', $name)->first();
+            if($prevTag and ($prevTag->name !== '')){
+                $tag = Tag::where('name','=', $name)->get('id');
+                $post->tags()->attach($tag);
+                continue;
+            }
+
+            $tag = new Tag;
+            $tag->name=$name;
+            $tag->save();
+            $post->tags()->attach($tag);
+        };
         return redirect('/posts')->with('success', 'Post Created');
     }
 
